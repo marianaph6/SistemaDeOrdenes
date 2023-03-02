@@ -6,7 +6,10 @@ using System.Threading.Tasks;
 
 namespace SistemaDeOrdenes.Models
 {
-    public class VerificacionAdicional
+    public class VerificacionAdicional : Verificacion
     {
+        public VerificacionAdicional(string _tipo) : base(_tipo)
+        {
+        }
     }
 }

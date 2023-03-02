@@ -11,6 +11,16 @@ namespace SistemaDeOrdenes.Models
     public class ManejadorVerificacion : IManejadorVerificacion
     {
         private Autenticacion autenticacion;
+        private List<Verificacion> verificacionList;
+
+        public ManejadorVerificacion()
+        {
+            verificacionList= new List<Verificacion>();
+            verificacionList.Add(new VerificacionAdicional("VerificacionCaché"));
+            verificacionList.Add(new VerificacionAdicional("VerificacionDatos"));
+            verificacionList.Add(new VerificacionAdicional("VerificacionDatosCrudos"));
+            verificacionList.Add(new VerificacionAdicional("VerificacionOtros"));
+        }
         public Task ordenarVerificaciones()
         {
             if (autenticacion.validarCredenciales())
